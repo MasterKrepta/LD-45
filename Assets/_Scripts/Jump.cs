@@ -9,25 +9,54 @@ public class Jump : MonoBehaviour
     [SerializeField] float lowJumpMulti = 2f;
 
 
+    
     Rigidbody rb;
+    int jumpCount = 0;
     private float distToGround;
+    [SerializeField] Transform groundCheck;
 
+    [SerializeField] bool grounded;
+
+    [SerializeField]bool canDoubleJump = false;
+
+    void OnEnable() {
+        Events.OnCockpitAquired += EnableDoubleJump;
+    }
+
+    void OnDisable() {
+        Events.OnCockpitAquired -= EnableDoubleJump;
+    }
+
+    private void EnableDoubleJump() {
+        canDoubleJump = true;
+        jumpForce *= 2;
+    }
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        distToGround = GetComponent<Collider>().bounds.extents.y;
+        distToGround = GetComponent<BoxCollider>().bounds.extents.y;
+        print($"Distance to ground is {distToGround}");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (IsGrounded()) {
+            jumpCount = 0;
+        }
         //print(IsGrounded());
 
         if (Input.GetKey(KeyCode.Space) && IsGrounded()) {
-            
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            if (canDoubleJump && Input.GetKey(KeyCode.Space)) {
+                jumpCount++;
+            }
+            if (jumpCount < 2) {
+                
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
+            
             
         }
         if (!IsGrounded()) {
@@ -48,8 +77,11 @@ public class Jump : MonoBehaviour
         }
     }
 
+    
     public  bool IsGrounded() {
         
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+        return Physics.Raycast(groundCheck.position, Vector3.down, distToGround + 0.1f);
+        
+        //return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.2f);
     }
 }

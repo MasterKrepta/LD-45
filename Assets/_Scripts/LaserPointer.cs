@@ -20,8 +20,8 @@ public class LaserPointer : MonoBehaviour, IInteractable
    
     void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Enemy")) {
-            print($"{other.name} saw the light");
-            //TODO set up reaction, run for insects attract for animals
+            
+            other.GetComponent<ICanDetect>().React(transform);
         }
     }
 

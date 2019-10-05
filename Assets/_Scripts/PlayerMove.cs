@@ -10,8 +10,8 @@ public class PlayerMove : MonoBehaviour
     Rigidbody rb;
     Jump jump;
     Vector3 movement;
+   
 
-    
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +28,13 @@ public class PlayerMove : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (jump.IsGrounded()) {
+        //if (jump.IsGrounded()) {
 
             MovePlayer();
             if (rb.velocity != Vector3.zero) {
                 RotatePlayer();
             }
-        }
+        //}
 
        
     }

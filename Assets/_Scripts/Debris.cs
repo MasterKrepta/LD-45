@@ -41,7 +41,16 @@ public class Debris : MonoBehaviour, IInteractable
         triggerCol.enabled = true;
     }
 
+    void OnTriggerEnter(Collider other) {
+        
+        if (rb.velocity.magnitude > 0 && other.CompareTag("Enemy")) {
+            print($"{other.name} has been distracted by the brick");
+            other.gameObject.GetComponent<ICanDetect>().React(transform);
+
+        }
+    }
   
+    
 
   
 }
