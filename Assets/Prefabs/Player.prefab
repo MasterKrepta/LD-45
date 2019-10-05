@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1243243711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1243243712}
+  m_Layer: 0
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1243243712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243243711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.36, y: 0.06, z: 0.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6445404578400471256}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2019892599996665770
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,6 +45,8 @@ GameObject:
   - component: {fileID: 2019892599996665768}
   - component: {fileID: 2019892599996665780}
   - component: {fileID: 2019892599996665779}
+  - component: {fileID: 2019892601168022506}
+  - component: {fileID: 2019892601168022513}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -120,6 +152,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f4697739a67164db8eb7308ecef8cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2019892601168022506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019892599996665770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8555b37a9b6e9e4593c2ed5e04b4c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hand: {fileID: 1243243712}
+--- !u!114 &2019892601168022513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019892599996665770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569b86a7b02704440b50aba097b627e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hand: {fileID: 1243243712}
 --- !u!1 &2019892600578690481
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,11 +275,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2019892599996665769}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: f3bad2f45f779d84faa1ef6b316883c0,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f3bad2f45f779d84faa1ef6b316883c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -281,6 +334,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.55
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f3bad2f45f779d84faa1ef6b316883c0,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3bad2f45f779d84faa1ef6b316883c0, type: 3}

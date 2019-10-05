@@ -27,13 +27,6 @@ public class PlayerAttack : MonoBehaviour
     void Attack() {
         print("attack");
         anim.SetTrigger("Attack");
-        //Health[] obs = FindObjectsOfType<Health>();
-
-        //foreach (var item in obs) {
-        //    item.TakeDamage(1);
-        //}
-
-        
         StartCoroutine(Cooldown());
     }
 
