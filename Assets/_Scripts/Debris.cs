@@ -10,6 +10,9 @@ public class Debris : MonoBehaviour, IInteractable
     [SerializeField] float thowForce = 10f;
     [SerializeField] float upForce = 5f;
     [SerializeField] Material[] Colors;
+    AudioSource audio;
+    [SerializeField]AudioClip pickup;
+    [SerializeField] AudioClip throwEffect;
 
 
     void Start() {
@@ -18,10 +21,13 @@ public class Debris : MonoBehaviour, IInteractable
         triggerCol = GetComponent<SphereCollider>();
         triggerCol.isTrigger = true;
         rb = GetComponent<Rigidbody>();
+        audio = GetComponent<AudioSource>();
         
     }
     public void Pickup(Transform hand) {
-        
+        audio.clip = pickup;
+        audio.Play();
+
         rb.velocity = Vector3.zero;
         transform.position = hand.position;
         transform.SetParent(hand);
@@ -34,7 +40,9 @@ public class Debris : MonoBehaviour, IInteractable
     public void Use() {
         rb.AddForce(transform.parent.up * upForce, ForceMode.Impulse);
         rb.AddForce(transform.parent.forward * thowForce, ForceMode.Impulse);
-        
+        audio.clip = throwEffect;
+        audio.Play();
+
         this.gameObject.transform.SetParent(null);
         rb.useGravity = true;
         collider.enabled = true;
@@ -44,7 +52,7 @@ public class Debris : MonoBehaviour, IInteractable
     void OnTriggerEnter(Collider other) {
         
         if (rb.velocity.magnitude > 0 && other.CompareTag("Enemy")) {
-            print($"{other.name} has been distracted by the brick");
+            //print($"{other.name} has been distracted by the brick");
             other.gameObject.GetComponent<ICanDetect>().React(transform);
 
         }

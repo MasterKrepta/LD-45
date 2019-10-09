@@ -107,7 +107,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271539743230645385}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 10
@@ -133,6 +133,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 99cda4906d8fbc14c91404ee83472100, type: 2}
   - {fileID: 2100000, guid: bb71fd14fc756414fb69bec62b8b8939, type: 2}
   - {fileID: 2100000, guid: 248a844d1c907734393d120900f20427, type: 2}
+  pickup: {fileID: 8300000, guid: 5f112e043450b4a478625d48abbdb97e, type: 3}
+  throwEffect: {fileID: 8300000, guid: b66ba241f134c754abfc68d8afc1f50f, type: 3}
 --- !u!65 &8296172669326876103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -144,5 +146,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.15656197, y: 0.07077586, z: 0.041588966}
-  m_Center: {x: -0.00030526146, y: 0.00014501622, z: 0.0031034653}
+  m_Size: {x: 0.78280985, y: 0.35387927, z: 0.20794483}
+  m_Center: {x: -0.001526311, y: 0.00072507554, z: 0.01551733}

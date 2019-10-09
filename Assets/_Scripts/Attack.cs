@@ -12,7 +12,7 @@ public class Attack : MonoBehaviour
 
 
     public void Start() {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         if (Target == null) {
             Target = FindObjectOfType<PlayerHealth>();
         }

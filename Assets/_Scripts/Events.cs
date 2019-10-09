@@ -9,4 +9,7 @@ public static class Events
     public static Action OnCockpitAquired = delegate { };
     public static Action OnRearAquired = delegate { };
     public static Action OnCanopyAquired = delegate { };
+
+    public static Action OnGameOver = delegate { };
+    public static Action OnPlayerDied = delegate { };
 }

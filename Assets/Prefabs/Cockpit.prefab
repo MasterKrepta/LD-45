@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2139733460208046472}
   - component: {fileID: 1787157129}
   - component: {fileID: 1787157133}
+  - component: {fileID: 607712990}
   m_Layer: 0
   m_Name: Cockpit
   m_TagString: Untagged
@@ -106,3 +107,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f8f54340bdbe44bac94d68c3573768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &607712990
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758562331563204191}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6287616, y: 0.79379076, z: 0.25438613}
+  m_Center: {x: 0.008566439, y: 0.30497366, z: 0.027193068}

@@ -12,13 +12,20 @@ public class PlayerHealth : MonoBehaviour, IHasHealth
     public float CurrentHealth { get; private set; }
     float flashDelay = 0.25f;
     [SerializeField]Renderer[] rends;
+    [SerializeField] GameObject playerModel;
     [SerializeField]Color[] originals;
+    [SerializeField] GameObject healthContainer;
+    AudioSource audio;
 
+
+   
 
     void Start() {
-        CurrentHealth = 5f;
-        rends = GetComponentsInChildren<Renderer>();
+        CurrentHealth = 10f;
+        audio = GetComponent<AudioSource>();
+        rends = playerModel.GetComponentsInChildren<Renderer>();
         for (int i = 0; i < rends.Length; i++) {
+            
             originals[i] = rends[i].material.color;
         }
 
@@ -30,10 +37,13 @@ public class PlayerHealth : MonoBehaviour, IHasHealth
         foreach (var script in scripts) {
             script.enabled = false;
         }
+        Events.OnPlayerDied();
     }
 
     public void TakeDamage(float dmg) {
         CurrentHealth -= dmg;
+        audio.Play();
+        Destroy(healthContainer.transform.GetChild(healthContainer.transform.childCount - 1).gameObject);
         StartCoroutine(FlashOnHit());
         if (CurrentHealth <= 0) {
             Die();

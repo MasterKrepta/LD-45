@@ -27,7 +27,7 @@ public class CatMove : MonoBehaviour, ICanDetect
 
             if (DistToPlayer < detectRange) {
                 agent.SetDestination(Target.position);
-                print("playerDetected");
+                //print("playerDetected");
 
             } else {
 
